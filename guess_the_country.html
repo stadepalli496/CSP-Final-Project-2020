@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>Guess the Country!</title>
+    <script>
+    var score = 0;
+    var questionCount = 0;
+    var answer1 = "";
+    var answer2 = "";
+    var answer3 = "";
+    var answer4 = "";
+    var answer5 = "";
+    function gradeQuiz()
+    {
+      if(questionCount == 0)
+      {
+        answer1 = document.getElementById("answer").value;
+        if(answer1 == "canada" || answer1 == "Canada")
+        {
+          score = score + 1;
+        }
+        document.getElementById("picture").innerHTML = "<img src='france.png'>";
+      }
+      if(questionCount == 1)
+      {
+        answer2 = document.getElementById("answer").value;
+        if(answer2 == "france" || answer2 == "France")
+        {
+          score = score + 1;
+        }
+        document.getElementById("picture").innerHTML = "<img src='germany.png'>";
+      }
+      if(questionCount == 2)
+      {
+        answer3 = document.getElementById("answer").value;
+        if(answer3 == "germany" || answer3 == "Germany")
+        {
+          score = score + 1;
+        }
+        document.getElementById("picture").innerHTML = "<img src='spain.png'>";
+      }
+      if(questionCount == 3)
+      {
+        answer4 = document.getElementById("answer").value;
+        if(answer4 == "spain" || answer4 == "Spain")
+        {
+          score = score + 1;
+        }
+        document.getElementById("picture").innerHTML = "<img src='italy.png'>";
+      }
+      if(questionCount == 4)
+      {
+        answer5 = document.getElementById("answer").value;
+        if(answer5 == "italy" || answer5 == "Italy")
+        {
+          score = score + 1;
+        }
+          end();
+      }
+      questionCount = questionCount + 1;
+    }
+    function end()
+    {
+      var table = "Results:" + "<br>";
+      table = table + "The first country was Canada. Your answer was: " + answer1 + "<br>";
+      table = table + "The second country was France. Your answer was: " + answer2 + "<br>";
+      table = table + "The third country was Germany. Your answer was: " + answer3 + "<br>";
+      table = table + "The fourth country was Spain. Your answer was: " + answer4 + "<br>";
+      table = table + "The fifth country was Italy. Your answer was: " + answer5 + "<br>";
+      document.getElementById("picture").innerHTML = "<br>" + "Score: " + score + "/5!" + "<br>" + table;
+      document.getElementById("button").style.visibility = "hidden";
+      document.getElementById("answer").style.visibility = "hidden";
+
+      document.getElementById("button2").style.visibility = "visible";
+   }
+   function reset()
+   {
+      table = "";
+      score = 0;
+      questionCount = 0;
+      document.getElementById("picture").innerHTML = "<img src = 'canada.png'>";
+   }
+   function hide()
+   {
+     document.getElementById("button2").style.visibility = "hidden";
+   }
+</script>
+<style>
+body{
+  text-align: center;
+  background-color: #66ccff;
+  font-family: sans-serif;
+}
+h1{
+  color: darkblue;
+  font-size: 40px;
+}
+span{
+  font-size: 25px;
+}
+
+img{
+  width: 500px;
+  height: 250px;
+}
+#button, #answer, #button2 {
+  font-size: 25px;
+  font-family: sans-serif;
+}
+#button {
+  background-color: darkblue;
+  color: white;
+}
+#button:hover {
+  background-color: indigo;
+}
+#button2:hover {
+  background-color: gray;
+}
+#answer {
+  background-color: darkblue;
+  color: white;
+}
+#table{
+  text-align: center;
+}
+
+</style>
+</head>
+
+<body onload="hide()">
+<center>
+<h1>Guess the Country!</h1>
+<span id = "picture"><img src="canada.png"></span>
+<br>
+<span id="table"></span>
+<br><br><br><br>
+<input type = "text" id = "answer">
+<input id = "button" type = "button" value = "Submit Answer" onclick = "gradeQuiz()">
+<input id = "button2" type = "button" value = "Play Again" onclick = "window.location.reload();">
+</body>
+</html>
